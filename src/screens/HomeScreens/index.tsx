@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, TouchableOpacity } from 'react-native';
 import { connect } from "react-redux";
+import { ListView } from '../../components/organisms';
 
 import { getUserList } from "./actions";
 import styles from './style';
@@ -16,11 +17,25 @@ class HomeScreen extends Component<Props, State> {
     componentDidMount() {
         this.props.getUserList();
     }
+
+    _onPress = (item) => {
+
+    }
+    _renderItem = ({ item }) => (
+        <TouchableOpacity onPress={() => this._onPress(item)}>
+            <Text>{item.name.first}</Text>
+        </TouchableOpacity>
+    );
+
     render() {
         return (
             <View style={styles.container}>
                 <Text>This is title</Text>
                 <Text>{this.props.data.length}</Text>
+                <ListView
+                    data={this.props.data}
+                    emptyTitle={'No User Data'}
+                    renderItem={this._renderItem} />
             </View>
         );
     }
