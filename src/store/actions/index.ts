@@ -1,21 +1,15 @@
-
-import {
-    SYNC_REQUEST,
-    SYNC_ERROR,
-    SYNC_RESPONSE
-} from '../constants';
-
+import * as constants from '../constants';
 
 // function to sync 
 export const synchronization = () => (dispatch: Function, getState: Function) => {
     dispatch({
-        type: SYNC_REQUEST,
+        type: constants.SYNC_REQUEST,
     })
     dispatch({
-        type: SYNC_RESPONSE,
+        type: constants.SYNC_RESPONSE,
     })
     dispatch({
-        type: SYNC_ERROR,
+        type: constants.SYNC_ERROR,
         payload: 'Error'
     })
 }
