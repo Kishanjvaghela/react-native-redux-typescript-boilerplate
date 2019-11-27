@@ -44,6 +44,7 @@ class HomeScreen extends Component<Props, State> {
                 <Text>This is title</Text>
                 <Text>{this.props.data.length}</Text>
                 <ListView
+                    isLoading={this.props.isLoading}
                     style={styles.userList}
                     data={this.props.data}
                     emptyTitle={'No User Data'}
@@ -61,6 +62,6 @@ function bindAction(dispatch) {
 
 const mapStateToProps = state => ({
     data: state.homeReducer.data,
-    isLoading: [],
+    isLoading: state.homeReducer.isLoading,
 });
 export default connect(mapStateToProps, bindAction)(HomeScreen);
