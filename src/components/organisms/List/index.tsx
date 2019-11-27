@@ -11,13 +11,14 @@ export interface Props {
 
 export default class ListView extends React.Component<FlatListProps<any>> {
     render() {
-        const { renderItem, data, emptyTitle } = this.props
+        const { renderItem, data, emptyTitle, ...restProps } = this.props
         return (
             <FlatList
                 ListEmptyComponent={<EmptyView title={emptyTitle} />}
                 keyExtractor={(item, index) => index + ""}
                 data={data}
                 renderItem={renderItem}
+                {...restProps}
             />
         );
     }

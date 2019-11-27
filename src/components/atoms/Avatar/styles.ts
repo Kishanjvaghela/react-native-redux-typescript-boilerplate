@@ -5,5 +5,5 @@ export default StyleSheet.create({
     root: {
         // alignItems: 'center',
         // alignSelf: 'center',
-    }
+    },
 });

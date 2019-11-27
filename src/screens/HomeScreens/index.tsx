@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, Button, TouchableOpacity } from 'react-native';
+import { View, Text, Button, TouchableOpacity, Image } from 'react-native';
 import { connect } from "react-redux";
 import { ListView } from '../../components/organisms';
-
+import { Avatar } from '../../components/atoms';
 import { getUserList } from "./actions";
 import styles from './style';
 export interface Props {
@@ -21,11 +21,22 @@ class HomeScreen extends Component<Props, State> {
     _onPress = (item) => {
 
     }
-    _renderItem = ({ item }) => (
-        <TouchableOpacity onPress={() => this._onPress(item)}>
-            <Text>{item.name.first}</Text>
-        </TouchableOpacity>
-    );
+    _renderItem = ({ item }) => {
+        const name = `${item.name.title}, ${item.name.first} ${item.name.last}`;
+        return (
+            <TouchableOpacity
+                onPress={() => this._onPress(item)}
+                style={styles.userItem}>
+                <Avatar
+                    size={50}
+                    source={{ uri: item.picture.medium }} />
+                <View style={styles.userDetail}>
+                    <Text>{name}</Text>
+                    <Text>{item.name.first}</Text>
+                </View>
+            </TouchableOpacity>
+        )
+    };
 
     render() {
         return (
@@ -33,6 +44,7 @@ class HomeScreen extends Component<Props, State> {
                 <Text>This is title</Text>
                 <Text>{this.props.data.length}</Text>
                 <ListView
+                    style={styles.userList}
                     data={this.props.data}
                     emptyTitle={'No User Data'}
                     renderItem={this._renderItem} />
