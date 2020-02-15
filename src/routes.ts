@@ -1,3 +1,3 @@
 export default {
-    HOME: 'HomeScreen',
-}
+  HOME: 'HomeScreen',
+};

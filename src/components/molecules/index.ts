@@ -1,4 +1,2 @@
-import EmptyView from './EmptyView'
-export {
-    EmptyView,
-};
+import EmptyView from './EmptyView';
+export {EmptyView};

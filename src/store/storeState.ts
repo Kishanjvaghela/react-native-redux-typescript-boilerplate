@@ -1,17 +1,17 @@
 // global store state
 export interface StoreState {
-    syncReducer: SyncState
+  syncReducer: SyncState;
 }
 
 // sync state
 export interface SyncState {
-    error: string,
-    isLoading: boolean,
+  error: string;
+  isLoading: boolean;
 }
 
 export const initialState: StoreState = {
-    syncReducer: {
-        isLoading: false,
-        error: ''
-    },
-}
+  syncReducer: {
+    isLoading: false,
+    error: '',
+  },
+};

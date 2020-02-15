@@ -6,7 +6,7 @@ import homeReducer from '../../screens/HomeScreens/reducer';
 // Redux: Root Reducer
 const rootReducer = combineReducers({
   syncReducer: syncReducer,
-  homeReducer: homeReducer
+  homeReducer: homeReducer,
 });
 // Exports
 export default rootReducer;

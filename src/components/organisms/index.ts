@@ -1,4 +1,2 @@
-import ListView from './List'
-export {
-    ListView,
-};
+import ListView from './List';
+export {ListView};
