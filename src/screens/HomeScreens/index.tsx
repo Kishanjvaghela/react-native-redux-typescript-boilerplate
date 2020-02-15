@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { ListView } from '../../components/organisms';
 import { Avatar } from '../../components/atoms';
 import { getUserList } from "./actions";
+import strings from '../../res/i18n';
 import styles from './style';
 export interface Props {
     navigation: any;
@@ -41,7 +42,7 @@ class HomeScreen extends Component<Props, State> {
     render() {
         return (
             <View style={styles.container}>
-                <Text>This is title</Text>
+                <Text>{strings.appName}</Text>
                 <Text>{this.props.data.length}</Text>
                 <ListView
                     isLoading={this.props.isLoading}
