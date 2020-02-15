@@ -1,11 +1,14 @@
 import * as React from 'react';
-import {View, Text, Button, TouchableOpacity, Image} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
+
 import {ListView} from '../../components/organisms';
 import {Avatar} from '../../components/atoms';
 import {getUserList} from './actions';
 import strings from '../../res/i18n';
 import styles from './style';
+import {getData, isLoading} from './selectors';
+
 export interface Props {
   navigation: any;
   getUserList: Function;
@@ -19,6 +22,7 @@ class HomeScreen extends React.Component<Props, State> {
   }
 
   _onPress = item => {};
+
   _renderItem = ({item}) => {
     const name = `${item.name.title}, ${item.name.first} ${item.name.last}`;
     return (
@@ -58,7 +62,7 @@ function bindAction(dispatch) {
 }
 
 const mapStateToProps = state => ({
-  data: state.homeReducer.data,
-  isLoading: state.homeReducer.isLoading,
+  data: getData(state),
+  isLoading: isLoading(state),
 });
 export default connect(mapStateToProps, bindAction)(HomeScreen);
