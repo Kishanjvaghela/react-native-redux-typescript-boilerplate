@@ -11,7 +11,10 @@ export interface Props {
   isLoading: boolean;
 }
 
-export default class ListView extends React.Component<FlatListProps<any>> {
+export default class ListView extends React.Component<
+  Props,
+  FlatListProps<any>
+> {
   render() {
     const {isLoading, renderItem, data, emptyTitle, ...restProps} = this.props;
     if (isLoading) {

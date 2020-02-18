@@ -1,2 +1,2 @@
-import ListView from './List';
+import ListView from '../molecules/List';
 export {ListView};
